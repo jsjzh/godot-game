@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dflxmrs1je1cc"]
+[gd_scene format=3 uid="uid://dflxmrs1je1cc"]
 
 [ext_resource type="Texture2D" uid="uid://dfpvc2mjiryvr" path="res://AssetBundle/Sprites/Foxy.png" id="1_k7cpf"]
-[ext_resource type="Script" uid="uid://brw2t8b1w5ai" path="res://Scripts/player.gd" id="1_q4rjh"]
+[ext_resource type="Script" uid="uid://brw2t8b1w5ai" path="res://Scripts/Player.gd" id="1_q4rjh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgx76"]
 atlas = ExtResource("1_k7cpf")
@@ -135,15 +135,16 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q4rjh"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1157600657 node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("1_q4rjh")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1567163343]
 sprite_frames = SubResource("SpriteFrames_82ove")
-animation = &"game_over"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.96544856
+frame_progress = 0.8146024
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075697584]
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_q4rjh")
