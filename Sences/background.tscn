@@ -1,38 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhrgy4dxtcrue"]
+[gd_scene format=3 uid="uid://dhrgy4dxtcrue"]
 
 [ext_resource type="Texture2D" uid="uid://ccc8ukn1ltknr" path="res://AssetBundle/Sprites/ForestBackground.png" id="1_qy7w2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qy7w2"]
 
-[node name="Background" type="Node2D"]
+[node name="Background" type="Node2D" unique_id=562929108]
 
-[node name="Background 1" type="Sprite2D" parent="."]
+[node name="Background 1" type="Sprite2D" parent="." unique_id=1005551838]
 position = Vector2(-120, 0)
 texture = ExtResource("1_qy7w2")
 metadata/_edit_lock_ = true
 
-[node name="Background 2" type="Sprite2D" parent="."]
+[node name="Background 2" type="Sprite2D" parent="." unique_id=171206209]
 position = Vector2(120, 0)
 texture = ExtResource("1_qy7w2")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1576946272]
 
-[node name="CollisionShape2D1" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D" unique_id=1842460355]
 position = Vector2(0, 130)
 shape = SubResource("WorldBoundaryShape2D_qy7w2")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=180701336]
 position = Vector2(0, 40)
-rotation = -3.1415927
+rotation = 3.1415925
 shape = SubResource("WorldBoundaryShape2D_qy7w2")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=505221165]
 position = Vector2(240, 40)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_qy7w2")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=9133123]
 position = Vector2(-240, 40)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_qy7w2")
