@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqpjhpbalu5o0"]
+
+[ext_resource type="PackedScene" uid="uid://dhrgy4dxtcrue" path="res://Sences/background.tscn" id="1_o0k6y"]
+[ext_resource type="PackedScene" uid="uid://dflxmrs1je1cc" path="res://Sences/player.tscn" id="2_8not6"]
+[ext_resource type="PackedScene" uid="uid://kjjdmxix4wuu" path="res://Sences/slime.tscn" id="3_xfvu4"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.43, 2.43)
+
+[node name="Background" parent="." instance=ExtResource("1_o0k6y")]
+
+[node name="Slime" parent="." instance=ExtResource("3_xfvu4")]
+position = Vector2(188, 77)
+
+[node name="Player" parent="." instance=ExtResource("2_8not6")]
+position = Vector2(-165, 77)
