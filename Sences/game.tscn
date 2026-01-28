@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dflxmrs1je1cc" path="res://Sences/player.tscn" id="2_8not6"]
 [ext_resource type="PackedScene" uid="uid://kjjdmxix4wuu" path="res://Sences/slime.tscn" id="3_xfvu4"]
 [ext_resource type="Script" uid="uid://78ffnehtah7l" path="res://Scripts/GameController.gd" id="5_fijot"]
-[ext_resource type="Script" uid="uid://cwogujtxdxsxj" path="res://Scripts/Player.gd" id="5_vdsn5"]
+[ext_resource type="FontFile" uid="uid://dnsb33tqh3cx0" path="res://AssetBundle/Uranus_Pixel_11Px.ttf" id="7_oyc07"]
 
 [node name="Game" type="Node2D" unique_id=1922324146 node_paths=PackedStringArray("create_slime_time")]
 y_sort_enabled = true
@@ -20,12 +20,45 @@ zoom = Vector2(2.43, 2.43)
 
 [node name="Player" parent="." unique_id=1580092798 instance=ExtResource("2_8not6")]
 position = Vector2(-213, 83)
-script = ExtResource("5_vdsn5")
 
 [node name="Timer" type="Timer" parent="." unique_id=2145124127]
 autostart = true
 
-[node name="GameController" type="Node" parent="." unique_id=1056707666]
+[node name="GameController" type="Node" parent="." unique_id=1056707666 node_paths=PackedStringArray("score_label", "game_over_label")]
 script = ExtResource("5_fijot")
+score_label = NodePath("../CanvasLayer/Label")
+game_over_label = NodePath("../CanvasLayer/Game Over Label")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=577734392]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1926634201]
+offset_left = 50.0
+offset_top = 30.0
+offset_right = 161.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("7_oyc07")
+theme_override_font_sizes/font_size = 40
+text = "SCORE"
+vertical_alignment = 1
+
+[node name="Game Over Label" type="Label" parent="CanvasLayer" unique_id=1514077771]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -20.0
+offset_right = 98.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.69411767, 0.18039216, 0, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("7_oyc07")
+theme_override_font_sizes/font_size = 120
+text = "GAME OVER"
+vertical_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

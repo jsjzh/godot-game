@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kjjdmxix4wuu"]
 
 [ext_resource type="Texture2D" uid="uid://bq4rlkrn7c7hh" path="res://AssetBundle/Sprites/Slimer.png" id="1_8lw2f"]
-[ext_resource type="Script" uid="uid://bhu0lcrsjoatl" path="res://Scripts/slime.gd" id="1_mdyxf"]
+[ext_resource type="Script" uid="uid://cgd5r7miuog0h" path="res://Scripts/slime.gd" id="1_mdyxf"]
 [ext_resource type="Texture2D" uid="uid://bfspqjo2dvsdv" path="res://AssetBundle/Sprites/SlimerDeath.png" id="2_txc4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3kql"]

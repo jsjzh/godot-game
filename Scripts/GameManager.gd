@@ -1,10 +1,8 @@
 extends Node
 
-static var instance: GameManager = null
-
 signal game_overed
 signal game_pused
-signal game_playing
+signal game_played
 
 enum GameState {
 	PLAYING,
@@ -13,9 +11,6 @@ enum GameState {
 }
 
 var game_state: GameState = GameState.PLAYING
-
-func _init():
-	instance = self
 
 func trigger_game_state(new_state: GameState):
 	game_state = new_state
@@ -26,4 +21,4 @@ func trigger_game_state(new_state: GameState):
 	elif new_state == GameState.PUSED:
 		game_pused.emit()
 	elif new_state == GameState.PLAYING:
-		game_playing.emit()
+		game_played.emit()

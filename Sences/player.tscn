@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dflxmrs1je1cc"]
 
 [ext_resource type="Texture2D" uid="uid://dfpvc2mjiryvr" path="res://AssetBundle/Sprites/Foxy.png" id="1_k7cpf"]
-[ext_resource type="Script" uid="uid://brw2t8b1w5ai" path="res://Scripts/Player.gd" id="1_q4rjh"]
+[ext_resource type="Script" uid="uid://cwogujtxdxsxj" path="res://Scripts/Player.gd" id="1_q4rjh"]
 [ext_resource type="PackedScene" uid="uid://cqng1a5tvs6ca" path="res://Sences/bullet.tscn" id="2_8lje0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgx76"]

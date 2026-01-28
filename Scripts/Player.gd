@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var bullet_scene: PackedScene
 
 func _ready():
-	GameManager.instance.game_overed.connect(handle_game_over)
+	GameManager.game_overed.connect(handle_game_over)
 
 func _physics_process(delta: float) -> void:
 	if GameManager.game_state == GameManager.GameState.PLAYING:
