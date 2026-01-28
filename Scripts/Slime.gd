@@ -1,12 +1,13 @@
 extends Area2D
 
-@onready var game_controller = get_node("/root/GameController") as Node
+@onready var game_controller = $"../GameController"
+
 @export var animated_sprite_2d: AnimatedSprite2D
 
 var is_dead: bool = false
 
 func _physics_process(delta: float) -> void:
-	if not is_dead and not GameManager.instance.is_game_over:
+	if not is_dead and GameManager.game_state == GameManager.GameState.PLAYING:
 		position += Vector2(-game_controller.slime_base_speed, 0) * delta
 		if position.x < -250:
 			queue_free()

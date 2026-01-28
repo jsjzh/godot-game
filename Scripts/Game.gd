@@ -9,12 +9,6 @@ func _process(delta):
 	create_slime_time.wait_time -= 0.2 * delta
 	create_slime_time.wait_time = clamp(create_slime_time.wait_time, 0.5, 2)
 
-func game_over():
-	is_game_over = true
-	for child in get_children():
-		if child.has_method("game_over"):
-			child.game_over()
-
 func _on_timer_timeout() -> void:
 	var slime_node = slime_Sence.instantiate()
 	slime_node.position = Vector2(260, randf_range(50, 115))

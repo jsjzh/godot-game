@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
+@onready var game_controller = $"../GameController"
+
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var bullet_scene: PackedScene
 
 func _ready():
-	GameManager.instance.game_over.connect(handle_game_over)
-	GameManager.instance.add_score.connect(handle_add_score)
+	GameManager.instance.game_overed.connect(handle_game_over)
 
 func _physics_process(delta: float) -> void:
-	if not GameManager.instance.is_game_over:
-		var speed = GameManager.instance.game_state.player_base_speed * 100 * delta
+	if GameManager.game_state == GameManager.GameState.PLAYING:
+		var speed = game_controller.player_base_speed * 100 * delta
 		velocity = Input.get_vector("left", "right", "up", "down") * speed
 
 		if velocity == Vector2.ZERO:
@@ -27,6 +28,3 @@ func _physics_process(delta: float) -> void:
 
 func handle_game_over():
 	animated_sprite_2d.play("game_over")
-
-func handle_add_score(score: int):
-	print("from player score: ", score)

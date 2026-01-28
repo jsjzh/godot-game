@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dflxmrs1je1cc" path="res://Sences/player.tscn" id="2_8not6"]
 [ext_resource type="PackedScene" uid="uid://kjjdmxix4wuu" path="res://Sences/slime.tscn" id="3_xfvu4"]
 [ext_resource type="Script" uid="uid://78ffnehtah7l" path="res://Scripts/GameController.gd" id="5_fijot"]
+[ext_resource type="Script" uid="uid://cwogujtxdxsxj" path="res://Scripts/Player.gd" id="5_vdsn5"]
 
 [node name="Game" type="Node2D" unique_id=1922324146 node_paths=PackedStringArray("create_slime_time")]
 y_sort_enabled = true
@@ -19,6 +20,7 @@ zoom = Vector2(2.43, 2.43)
 
 [node name="Player" parent="." unique_id=1580092798 instance=ExtResource("2_8not6")]
 position = Vector2(-213, 83)
+script = ExtResource("5_vdsn5")
 
 [node name="Timer" type="Timer" parent="." unique_id=2145124127]
 autostart = true
