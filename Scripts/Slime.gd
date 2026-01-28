@@ -3,6 +3,7 @@ extends Area2D
 @onready var game_controller = $"../GameController"
 
 @export var animated_sprite_2d: AnimatedSprite2D
+@export var audio_dead: AudioStreamPlayer
 
 var is_dead: bool = false
 
@@ -22,5 +23,6 @@ func _on_area_entered(area: Area2D) -> void:
 		is_dead = true
 		area.queue_free()
 		animated_sprite_2d.play("dead")
+		audio_dead.play()
 		await get_tree().create_timer(0.6).timeout
 		queue_free()

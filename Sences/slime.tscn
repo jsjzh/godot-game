@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://kjjdmxix4wuu"]
 
 [ext_resource type="Texture2D" uid="uid://bq4rlkrn7c7hh" path="res://AssetBundle/Sprites/Slimer.png" id="1_8lw2f"]
-[ext_resource type="Script" uid="uid://cgd5r7miuog0h" path="res://Scripts/slime.gd" id="1_mdyxf"]
+[ext_resource type="Script" uid="uid://cgd5r7miuog0h" path="res://Scripts/Slime.gd" id="1_mdyxf"]
 [ext_resource type="Texture2D" uid="uid://bfspqjo2dvsdv" path="res://AssetBundle/Sprites/SlimerDeath.png" id="2_txc4r"]
+[ext_resource type="AudioStream" uid="uid://c041iyfvkve4e" path="res://AssetBundle/Audio/EnemyDeath.mp3" id="4_n7mfo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3kql"]
 atlas = ExtResource("2_txc4r")
@@ -124,9 +125,10 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvyox"]
 
-[node name="Slime" type="Area2D" unique_id=1882251236 node_paths=PackedStringArray("animated_sprite_2d") groups=["slime"]]
+[node name="Slime" type="Area2D" unique_id=1882251236 node_paths=PackedStringArray("animated_sprite_2d", "audio_dead") groups=["slime"]]
 script = ExtResource("1_mdyxf")
 animated_sprite_2d = NodePath("AnimatedSprite2D")
+audio_dead = NodePath("Dead")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1604272824]
 sprite_frames = SubResource("SpriteFrames_m3kql")
@@ -138,6 +140,10 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1130078327]
 position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_mvyox")
+
+[node name="Dead" type="AudioStreamPlayer" parent="." unique_id=2053223517]
+stream = ExtResource("4_n7mfo")
+volume_db = -4.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

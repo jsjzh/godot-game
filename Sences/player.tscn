@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dfpvc2mjiryvr" path="res://AssetBundle/Sprites/Foxy.png" id="1_k7cpf"]
 [ext_resource type="Script" uid="uid://cwogujtxdxsxj" path="res://Scripts/Player.gd" id="1_q4rjh"]
 [ext_resource type="PackedScene" uid="uid://cqng1a5tvs6ca" path="res://Sences/bullet.tscn" id="2_8lje0"]
+[ext_resource type="AudioStream" uid="uid://vq0gw4jku2d6" path="res://AssetBundle/Audio/Gun.mp3" id="4_vq3pu"]
+[ext_resource type="AudioStream" uid="uid://dbv18udhbtfbg" path="res://AssetBundle/Audio/Running.mp3" id="5_e8tdt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgx76"]
 atlas = ExtResource("1_k7cpf")
@@ -136,10 +138,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q4rjh"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1157600657 node_paths=PackedStringArray("animated_sprite_2d")]
+[node name="Player" type="CharacterBody2D" unique_id=1157600657 node_paths=PackedStringArray("animated_sprite_2d", "audio_fire", "audio_run")]
 script = ExtResource("1_q4rjh")
 animated_sprite_2d = NodePath("AnimatedSprite2D")
 bullet_scene = ExtResource("2_8lje0")
+audio_fire = NodePath("Fire")
+audio_run = NodePath("Run")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1567163343]
 sprite_frames = SubResource("SpriteFrames_82ove")
@@ -150,3 +154,10 @@ frame_progress = 0.8146024
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075697584]
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_q4rjh")
+
+[node name="Fire" type="AudioStreamPlayer" parent="." unique_id=1651356415]
+stream = ExtResource("4_vq3pu")
+volume_db = -10.0
+
+[node name="Run" type="AudioStreamPlayer" parent="." unique_id=1723050582]
+stream = ExtResource("5_e8tdt")

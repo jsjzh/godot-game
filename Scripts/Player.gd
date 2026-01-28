@@ -4,9 +4,18 @@ extends CharacterBody2D
 
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var bullet_scene: PackedScene
+@export var audio_fire: AudioStreamPlayer
+@export var audio_run: AudioStreamPlayer
 
 func _ready():
 	GameManager.game_overed.connect(handle_game_over)
+
+func _process(_delta):
+	if velocity != Vector2.ZERO and GameManager.game_state == GameManager.GameState.PLAYING:
+		if not audio_run.playing:
+			audio_run.play()
+	else:
+		audio_run.stop()
 
 func _physics_process(delta: float) -> void:
 	if GameManager.game_state == GameManager.GameState.PLAYING:
@@ -25,6 +34,7 @@ func _physics_process(delta: float) -> void:
 			var bullet = bullet_scene.instantiate()
 			bullet.position = position + Vector2(6, 6)
 			get_tree().current_scene.add_child(bullet)
+			audio_fire.play()
 
 func handle_game_over():
 	animated_sprite_2d.play("game_over")
