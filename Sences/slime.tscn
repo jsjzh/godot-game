@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kjjdmxix4wuu"]
 
 [ext_resource type="Texture2D" uid="uid://bq4rlkrn7c7hh" path="res://AssetBundle/Sprites/Slimer.png" id="1_8lw2f"]
-[ext_resource type="Script" uid="uid://bhu0lcrsjoatl" path="res://Scripts/Slime.gd" id="1_mdyxf"]
+[ext_resource type="Script" uid="uid://bhu0lcrsjoatl" path="res://Scripts/slime.gd" id="1_mdyxf"]
 [ext_resource type="Texture2D" uid="uid://bfspqjo2dvsdv" path="res://AssetBundle/Sprites/SlimerDeath.png" id="2_txc4r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3kql"]
@@ -124,7 +124,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvyox"]
 
-[node name="Slime" type="Area2D" unique_id=1882251236 node_paths=PackedStringArray("animated_sprite_2d")]
+[node name="Slime" type="Area2D" unique_id=1882251236 node_paths=PackedStringArray("animated_sprite_2d") groups=["slime"]]
 script = ExtResource("1_mdyxf")
 animated_sprite_2d = NodePath("AnimatedSprite2D")
 

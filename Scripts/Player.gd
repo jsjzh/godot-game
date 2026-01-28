@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var move_speed: float = 80
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var bullet_scene: PackedScene
 
@@ -10,7 +9,8 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if not GameManager.instance.is_game_over:
-		velocity = Input.get_vector("left", "right", "up", "down") * move_speed * 100 * delta
+		var speed = GameManager.instance.game_state.player_base_speed * 100 * delta
+		velocity = Input.get_vector("left", "right", "up", "down") * speed
 
 		if velocity == Vector2.ZERO:
 			animated_sprite_2d.play("idle")

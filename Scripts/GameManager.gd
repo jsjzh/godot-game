@@ -3,26 +3,27 @@ extends Node
 static var instance: GameManager = null
 
 signal game_over
-signal add_score(score: int)
+signal game_pused
+signal game_playing
 
-var is_game_over: bool = false
-var score: int = 0
+enum GameState {
+	PLAYING,
+	GAME_OVER,
+	PUSED
+}
+
+var game_state: GameState = GameState.PLAYING
 
 func _init():
 	instance = self
 
-func trigger_game_over():
-	is_game_over = true
-	game_over.emit()
-	await get_tree().create_timer(1).timeout
-	reset_game()
-
-func trigger_add_score(points: int):
-	if is_game_over:
-		return
-	score += points
-	add_score.emit(score)
-
-func reset_game():
-	is_game_over = false
-	get_tree().reload_current_scene()
+func trigger_game_state(new_state: GameState):
+	game_state = new_state
+	if new_state == GameState.GAME_OVER:
+		game_over.emit()
+		await get_tree().create_timer(3).timeout
+		get_tree().reload_current_scene()
+	elif new_state == GameState.PUSED:
+		game_pused.emit()
+	elif new_state == GameState.PLAYING:
+		game_playing.emit()
