@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 func _ready():
 	GameManager.instance.game_over.connect(handle_game_over)
+	GameManager.instance.add_score.connect(handle_add_score)
 
 func _physics_process(delta: float) -> void:
 	if not GameManager.instance.is_game_over:
@@ -19,13 +20,13 @@ func _physics_process(delta: float) -> void:
 
 		move_and_slide()
 
-func handle_game_over():
-	animated_sprite_2d.play("game_over")
-
-func _on_fire() -> void:
-	if velocity != Vector2.ZERO or GameManager.instance.is_game_over:
-		return
-	else:
+		if Input.is_action_just_pressed("fire"):
 			var bullet = bullet_scene.instantiate()
 			bullet.position = position + Vector2(6, 6)
 			get_tree().current_scene.add_child(bullet)
+
+func handle_game_over():
+	animated_sprite_2d.play("game_over")
+
+func handle_add_score(score: int):
+	print("from player score: ", score)

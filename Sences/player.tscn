@@ -150,9 +150,3 @@ frame_progress = 0.8146024
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075697584]
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_q4rjh")
-
-[node name="Timer" type="Timer" parent="." unique_id=64361806]
-wait_time = 0.5
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_fire"]

@@ -2,6 +2,35 @@
 
 [ext_resource type="Texture2D" uid="uid://bq4rlkrn7c7hh" path="res://AssetBundle/Sprites/Slimer.png" id="1_8lw2f"]
 [ext_resource type="Script" uid="uid://bhu0lcrsjoatl" path="res://Scripts/Slime.gd" id="1_mdyxf"]
+[ext_resource type="Texture2D" uid="uid://bfspqjo2dvsdv" path="res://AssetBundle/Sprites/SlimerDeath.png" id="2_txc4r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3kql"]
+atlas = ExtResource("2_txc4r")
+region = Rect2(0, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvyox"]
+atlas = ExtResource("2_txc4r")
+region = Rect2(64, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2pkg"]
+atlas = ExtResource("2_txc4r")
+region = Rect2(128, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wnai"]
+atlas = ExtResource("2_txc4r")
+region = Rect2(192, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3aoc"]
+atlas = ExtResource("2_txc4r")
+region = Rect2(256, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21ywb"]
+atlas = ExtResource("2_txc4r")
+region = Rect2(320, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cash0"]
+atlas = ExtResource("2_txc4r")
+region = Rect2(384, 0, 64, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdyxf"]
 atlas = ExtResource("1_8lw2f")
@@ -39,6 +68,32 @@ region = Rect2(287, 0, 41, 38)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_m3kql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvyox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2pkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wnai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3aoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21ywb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cash0")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mdyxf")
 }, {
 "duration": 1.0,
@@ -69,16 +124,21 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvyox"]
 
-[node name="Slime" type="Area2D" unique_id=1882251236]
+[node name="Slime" type="Area2D" unique_id=1882251236 node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("1_mdyxf")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1604272824]
 sprite_frames = SubResource("SpriteFrames_m3kql")
+animation = &"dead"
 autoplay = "default"
-frame_progress = 0.55543816
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1130078327]
 position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_mvyox")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

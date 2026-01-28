@@ -10,3 +10,5 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not GameManager.instance.is_game_over:
 		position += Vector2(bullet_speed, 0) * delta
+		if position.x > 470:
+			queue_free()

@@ -5,17 +5,21 @@
 [ext_resource type="PackedScene" uid="uid://dflxmrs1je1cc" path="res://Sences/player.tscn" id="2_8not6"]
 [ext_resource type="PackedScene" uid="uid://kjjdmxix4wuu" path="res://Sences/slime.tscn" id="3_xfvu4"]
 
-[node name="Game" type="Node2D" unique_id=1922324146]
+[node name="Game" type="Node2D" unique_id=1922324146 node_paths=PackedStringArray("create_slime_time")]
 y_sort_enabled = true
 script = ExtResource("1_pux0o")
+slime_Sence = ExtResource("3_xfvu4")
+create_slime_time = NodePath("Timer")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1141236589]
 zoom = Vector2(2.43, 2.43)
 
 [node name="Background" parent="." unique_id=220723073 instance=ExtResource("1_o0k6y")]
 
-[node name="Slime" parent="." unique_id=1528446800 instance=ExtResource("3_xfvu4")]
-position = Vector2(188, 77)
-
 [node name="Player" parent="." unique_id=1580092798 instance=ExtResource("2_8not6")]
-position = Vector2(-165, 77)
+position = Vector2(-213, 83)
+
+[node name="Timer" type="Timer" parent="." unique_id=2145124127]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
