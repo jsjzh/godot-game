@@ -23,6 +23,9 @@ func _ready():
 func _process(_delta):
   score_label.text = "SCORE: " + str(score)
 
+  if Input.is_action_just_pressed("ui_cancel"):
+    get_tree().quit()
+
 func trigger_add_score(points: int):
   score += points
   score_added.emit(score)
