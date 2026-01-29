@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://nj6e7xroubx7" path="res://Scripts/Game.gd" id="1_pux0o"]
 [ext_resource type="PackedScene" uid="uid://dflxmrs1je1cc" path="res://Sences/player.tscn" id="2_8not6"]
 [ext_resource type="PackedScene" uid="uid://kjjdmxix4wuu" path="res://Sences/slime.tscn" id="3_xfvu4"]
-[ext_resource type="Script" uid="uid://78ffnehtah7l" path="res://Scripts/GameController.gd" id="5_fijot"]
+[ext_resource type="Script" path="res://Scripts/GameController.gd" id="5_fijot"]
 [ext_resource type="FontFile" uid="uid://dnsb33tqh3cx0" path="res://AssetBundle/Uranus_Pixel_11Px.ttf" id="7_oyc07"]
 [ext_resource type="AudioStream" uid="uid://c6axlr2sgt13c" path="res://AssetBundle/Audio/GameOver.mp3" id="8_mbebh"]
 

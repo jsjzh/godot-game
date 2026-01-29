@@ -9,6 +9,7 @@ signal score_added(score: int)
 @export var player_base_speed: float = 80
 @export var bullet_base_speed: float = 200
 @export var slime_base_speed: float = 50
+@export var max_bullet: int = 5
 
 var score: int = 0
 

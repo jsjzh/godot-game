@@ -46,6 +46,22 @@ region = Rect2(66, 0, 33, 32)
 atlas = ExtResource("1_k7cpf")
 region = Rect2(99, 0, 33, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0nvh"]
+atlas = ExtResource("1_k7cpf")
+region = Rect2(0, 288, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o20xk"]
+atlas = ExtResource("1_k7cpf")
+region = Rect2(33, 288, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ylph"]
+atlas = ExtResource("1_k7cpf")
+region = Rect2(66, 288, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt7j6"]
+atlas = ExtResource("1_k7cpf")
+region = Rect2(99, 288, 33, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_82ove"]
 atlas = ExtResource("1_k7cpf")
 region = Rect2(0, 32, 33, 32)
@@ -114,6 +130,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_b0nvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o20xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ylph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt7j6")
+}],
+"loop": false,
+"name": &"roll",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_82ove")
 }, {
 "duration": 1.0,
@@ -147,9 +180,10 @@ audio_run = NodePath("Run")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1567163343]
 sprite_frames = SubResource("SpriteFrames_82ove")
-animation = &"idle"
+animation = &"roll"
 autoplay = "idle"
-frame_progress = 0.8146024
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075697584]
 position = Vector2(-1, 5)

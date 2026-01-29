@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d50md"]
 size = Vector2(6, 3)
 
-[node name="Bullet" type="Area2D" unique_id=1309717349 groups=["bullet"]]
+[node name="Bullet" type="Area2D" unique_id=1309717349 node_paths=PackedStringArray("bullet_sprite") groups=["bullet"]]
 script = ExtResource("1_d50md")
+bullet_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1276793349]
 texture = ExtResource("1_yvxky")
