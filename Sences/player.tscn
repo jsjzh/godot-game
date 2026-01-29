@@ -171,19 +171,17 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q4rjh"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1157600657 node_paths=PackedStringArray("animated_sprite_2d", "audio_fire", "audio_run")]
+[node name="Player" type="CharacterBody2D" unique_id=1157600657 node_paths=PackedStringArray("player_animated_sprite", "player_audio_fire", "player_audio_run") groups=["player"]]
 script = ExtResource("1_q4rjh")
-animated_sprite_2d = NodePath("AnimatedSprite2D")
+player_animated_sprite = NodePath("AnimatedSprite2D")
 bullet_scene = ExtResource("2_8lje0")
-audio_fire = NodePath("Fire")
-audio_run = NodePath("Run")
+player_audio_fire = NodePath("Fire")
+player_audio_run = NodePath("Run")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1567163343]
 sprite_frames = SubResource("SpriteFrames_82ove")
 animation = &"roll"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075697584]
 position = Vector2(-1, 5)

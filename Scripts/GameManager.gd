@@ -20,3 +20,7 @@ func trigger_game_state(new_state: GameState):
 		game_pused.emit()
 	elif new_state == GameState.PLAYING:
 		game_played.emit()
+
+
+func is_game_playing() -> bool:
+	return game_state == GameState.PLAYING

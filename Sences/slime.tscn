@@ -125,10 +125,10 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvyox"]
 
-[node name="Slime" type="Area2D" unique_id=1882251236 node_paths=PackedStringArray("animated_sprite_2d", "audio_dead") groups=["slime"]]
+[node name="Slime" type="Area2D" unique_id=1882251236 node_paths=PackedStringArray("slime_animated_sprite", "slime_audio_dead") groups=["slime"]]
 script = ExtResource("1_mdyxf")
-animated_sprite_2d = NodePath("AnimatedSprite2D")
-audio_dead = NodePath("Dead")
+slime_animated_sprite = NodePath("AnimatedSprite2D")
+slime_audio_dead = NodePath("Dead")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1604272824]
 sprite_frames = SubResource("SpriteFrames_m3kql")
