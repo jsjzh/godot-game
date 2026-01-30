@@ -18,33 +18,46 @@ slime_create_time = NodePath("Timer")
 zoom = Vector2(2.43, 2.43)
 
 [node name="Background" parent="." unique_id=220723073 instance=ExtResource("1_o0k6y")]
+z_index = -1
 
 [node name="Player" parent="." unique_id=1580092798 instance=ExtResource("2_8not6")]
-position = Vector2(-213, 83)
+position = Vector2(-214, 68)
 
 [node name="Timer" type="Timer" parent="." unique_id=2145124127]
 autostart = true
 
-[node name="GameController" type="Node" parent="." unique_id=1056707666 node_paths=PackedStringArray("score_label", "game_over_label", "audio_game_over", "game_over_restart_timer")]
+[node name="GameController" type="Node" parent="." unique_id=1056707666 node_paths=PackedStringArray("score_label", "game_over_label", "coin_label", "audio_game_over", "game_over_restart_timer")]
 script = ExtResource("5_fijot")
-score_label = NodePath("../CanvasLayer/Label")
-game_over_label = NodePath("../CanvasLayer/Game Over Label")
+score_label = NodePath("../UI/Label")
+game_over_label = NodePath("../UI/Game Over Label")
+coin_label = NodePath("../UI/Label2")
 audio_game_over = NodePath("../GAMEOVER")
 game_over_restart_timer = NodePath("../RestartGame")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=577734392]
+[node name="UI" type="CanvasLayer" parent="." unique_id=577734392]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1926634201]
+[node name="Label" type="Label" parent="UI" unique_id=1926634201]
 offset_left = 50.0
 offset_top = 30.0
 offset_right = 161.0
 offset_bottom = 70.0
 theme_override_fonts/font = ExtResource("7_oyc07")
 theme_override_font_sizes/font_size = 40
-text = "SCORE"
+text = "SCORE: 0"
 vertical_alignment = 1
 
-[node name="Game Over Label" type="Label" parent="CanvasLayer" unique_id=1514077771]
+[node name="Label2" type="Label" parent="UI" unique_id=95312991]
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 173.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0.85882354, 0.78039217, 0, 1)
+theme_override_fonts/font = ExtResource("7_oyc07")
+theme_override_font_sizes/font_size = 40
+text = "COIN: 0"
+vertical_alignment = 1
+
+[node name="Game Over Label" type="Label" parent="UI" unique_id=1514077771]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -71,6 +84,25 @@ volume_db = 2.0
 [node name="RestartGame" type="Timer" parent="." unique_id=1596025836]
 wait_time = 2.0
 one_shot = true
+
+[node name="Menu" type="CanvasLayer" parent="." unique_id=108680605]
+visible = false
+
+[node name="Exit" type="Label" parent="Menu" unique_id=38577327]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_oyc07")
+theme_override_font_sizes/font_size = 53
+text = "Exit"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RestartGame" to="GameController" method="_on_restart_game_timeout"]

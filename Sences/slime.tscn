@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bq4rlkrn7c7hh" path="res://AssetBundle/Sprites/Slimer.png" id="1_8lw2f"]
 [ext_resource type="Script" uid="uid://cgd5r7miuog0h" path="res://Scripts/Slime.gd" id="1_mdyxf"]
 [ext_resource type="Texture2D" uid="uid://bfspqjo2dvsdv" path="res://AssetBundle/Sprites/SlimerDeath.png" id="2_txc4r"]
+[ext_resource type="PackedScene" uid="uid://ipw1nrulhl8n" path="res://Sences/coin.tscn" id="2_xjgcs"]
 [ext_resource type="AudioStream" uid="uid://c041iyfvkve4e" path="res://AssetBundle/Audio/EnemyDeath.mp3" id="4_n7mfo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3kql"]
@@ -131,13 +132,11 @@ collision_mask = 7
 script = ExtResource("1_mdyxf")
 slime_animated_sprite = NodePath("AnimatedSprite2D")
 slime_audio_dead = NodePath("Dead")
+coin_scene = ExtResource("2_xjgcs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1604272824]
 sprite_frames = SubResource("SpriteFrames_m3kql")
-animation = &"dead"
 autoplay = "default"
-frame = 6
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1130078327]
 position = Vector2(0, 9)

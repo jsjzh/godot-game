@@ -7,7 +7,7 @@ var is_game_over: bool = false
 
 func _process(delta):
 	slime_create_time.wait_time -= 0.2 * delta
-	slime_create_time.wait_time = clamp(slime_create_time.wait_time, 0.5, 2)
+	slime_create_time.wait_time = clamp(slime_create_time.wait_time, 1, 3)
 
 func _on_timer_timeout() -> void:
 	var slime_node = slime_Sence.instantiate()

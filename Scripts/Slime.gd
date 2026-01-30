@@ -4,6 +4,7 @@ extends Area2D
 
 @export var slime_animated_sprite: AnimatedSprite2D
 @export var slime_audio_dead: AudioStreamPlayer
+@export var coin_scene: PackedScene
 
 @export var slime_base_speed: float = 50
 var is_dead: bool = false
@@ -27,5 +28,9 @@ func _on_area_entered(area: Area2D) -> void:
 		game_controller.trigger_add_score(1)
 		slime_animated_sprite.play("dead")
 		await slime_animated_sprite.animation_finished
-		# await get_tree().create_timer(0.6).timeout
 		queue_free()
+
+		var coin_node = coin_scene.instantiate()
+		coin_node.position = position
+		get_tree().current_scene.add_child(coin_node)
+		game_controller.trigger_not_picked_coin(1)

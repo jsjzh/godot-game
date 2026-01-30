@@ -9,12 +9,10 @@
 [node name="Background 1" type="Sprite2D" parent="." unique_id=1005551838]
 position = Vector2(-120, 0)
 texture = ExtResource("1_qy7w2")
-metadata/_edit_lock_ = true
 
 [node name="Background 2" type="Sprite2D" parent="." unique_id=171206209]
 position = Vector2(120, 0)
 texture = ExtResource("1_qy7w2")
-metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1764021468]
 
