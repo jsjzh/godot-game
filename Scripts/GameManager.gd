@@ -10,6 +10,14 @@ enum GameState {
 	PUSED
 }
 
+enum PhysicsLayer {
+	WALL = 1,
+	PLAYER = 2,
+	PLAYER_BUTTLE = 3,
+	ENEMY = 4,
+	COIN = 5,
+}
+
 var game_state: GameState = GameState.PLAYING
 
 func trigger_game_state(new_state: GameState):

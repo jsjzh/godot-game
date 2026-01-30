@@ -172,6 +172,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_q4rjh"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1157600657 node_paths=PackedStringArray("player_animated_sprite", "player_audio_fire", "player_audio_run", "player_roll_cooldown_Timer") groups=["player"]]
+collision_layer = 2
+collision_mask = 27
 script = ExtResource("1_q4rjh")
 player_animated_sprite = NodePath("AnimatedSprite2D")
 bullet_scene = ExtResource("2_8lje0")

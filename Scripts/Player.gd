@@ -22,7 +22,6 @@ var player_roll_timer: float = 0.0
 var player_roll_direction: Vector2 = Vector2.RIGHT
 var player_roll_colldownTimer: float = 1.0
 var player_can_roll: bool = true
-var player_is_invincible: bool = false
 
 var BlinkTween: Tween
 
@@ -59,7 +58,7 @@ func handle_idle_state(delta):
 
 	player_last_direction = sign(input_direction.x) if input_direction.x != 0 else player_last_direction
 
-	if Input.is_action_just_pressed("roll"):
+	if Input.is_action_just_pressed("roll") and input_direction != Vector2.ZERO:
 		start_roll(input_direction)
 	else:
 		velocity = input_direction * player_base_speed * delta
@@ -102,6 +101,8 @@ func start_roll(direction: Vector2):
 	player_roll_timer = player_roll_duration
 	player_animated_sprite.play("roll")
 	player_can_roll = false
+	set_collision_layer_value(GameManager.PhysicsLayer.PLAYER, false)
+	set_collision_mask_value(GameManager.PhysicsLayer.ENEMY, false)
 	player_roll_cooldown_Timer.start(player_roll_colldownTimer)
 
 	var tween = create_tween()
@@ -119,6 +120,9 @@ func start_roll(direction: Vector2):
 func end_roll():
 	player_move_type = PlayerMoveType.IDLE
 	velocity = Vector2.ZERO
+
+	set_collision_layer_value(GameManager.PhysicsLayer.PLAYER, true)
+	set_collision_mask_value(GameManager.PhysicsLayer.ENEMY, true)
 
 	if BlinkTween:
 		BlinkTween.kill()
