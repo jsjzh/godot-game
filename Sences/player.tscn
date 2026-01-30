@@ -171,16 +171,17 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q4rjh"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1157600657 node_paths=PackedStringArray("player_animated_sprite", "player_audio_fire", "player_audio_run") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1157600657 node_paths=PackedStringArray("player_animated_sprite", "player_audio_fire", "player_audio_run", "player_roll_cooldown_Timer") groups=["player"]]
 script = ExtResource("1_q4rjh")
 player_animated_sprite = NodePath("AnimatedSprite2D")
 bullet_scene = ExtResource("2_8lje0")
 player_audio_fire = NodePath("Fire")
 player_audio_run = NodePath("Run")
+player_roll_cooldown_Timer = NodePath("RollCooldownTimer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1567163343]
 sprite_frames = SubResource("SpriteFrames_82ove")
-animation = &"roll"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075697584]
@@ -193,3 +194,7 @@ volume_db = -10.0
 
 [node name="Run" type="AudioStreamPlayer" parent="." unique_id=1723050582]
 stream = ExtResource("5_e8tdt")
+
+[node name="RollCooldownTimer" type="Timer" parent="." unique_id=1127559567]
+
+[connection signal="timeout" from="RollCooldownTimer" to="." method="_on_roll_cooldown_timer_timeout"]
