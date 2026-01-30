@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c6d5303hc7exx"]
+
+[ext_resource type="Texture2D" uid="uid://b81ea8ogflc1s" path="res://AssetBundle/Sprites/Coin.png" id="1_7t5uo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c88qh"]
+atlas = ExtResource("1_7t5uo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcpl6"]
+atlas = ExtResource("1_7t5uo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhxti"]
+atlas = ExtResource("1_7t5uo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2lun"]
+atlas = ExtResource("1_7t5uo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_301ao"]
+atlas = ExtResource("1_7t5uo")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkaag"]
+atlas = ExtResource("1_7t5uo")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at8ao"]
+atlas = ExtResource("1_7t5uo")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17cgd"]
+atlas = ExtResource("1_7t5uo")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_degsb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c88qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcpl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhxti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2lun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_301ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkaag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at8ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17cgd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_degsb"]
+
+[node name="Coin" type="Area2D" unique_id=308612687]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1858286180]
+sprite_frames = SubResource("SpriteFrames_degsb")
+autoplay = "default"
+frame_progress = 0.34256008
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1717473382]
+shape = SubResource("CircleShape2D_degsb")
