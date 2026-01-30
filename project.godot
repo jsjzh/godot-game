@@ -26,6 +26,7 @@ Bgm="*uid://cwhd7xud3boj7"
 
 [display]
 
+window/size/viewport_height=600
 window/stretch/mode="canvas_items"
 
 [input]

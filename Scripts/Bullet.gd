@@ -5,8 +5,7 @@ extends Area2D
 @export var bullet_sprite: Sprite2D
 
 @export var bullet_base_speed: float = 200
-# 1: right, -1: left
-var bullet_direction: int = 1
+var bullet_direction: int = 1 # 1: right, -1: left
 
 func _physics_process(delta: float) -> void:
 	if GameManager.is_game_playing():

@@ -1,22 +1,21 @@
-```gd
 extends CharacterBody2D
 
 # 角色状态枚举
 enum PlayerState {
-    NORMAL,      # 正常状态
-    ROLLING,     # 翻滚中
-    ATTACKING    # 攻击中（如果有）
+    NORMAL, # 正常状态
+    ROLLING, # 翻滚中
+    ATTACKING # 攻击中（如果有）
 }
 
 # 导出变量，方便在编辑器中调整
 @export var walk_speed := 200.0
 @export var roll_speed := 400.0
-@export var roll_duration := 0.5  # 翻滚持续时间（秒）
+@export var roll_duration := 0.5 # 翻滚持续时间（秒）
 
 # 状态变量
 var current_state = PlayerState.NORMAL
 var roll_timer := 0.0
-var roll_direction := Vector2.DOWN  # 默认翻滚方向
+var roll_direction := Vector2.DOWN # 默认翻滚方向
 
 # 节点引用
 @onready var sprite = $Sprite2D
@@ -120,4 +119,3 @@ func _on_animation_finished(anim_name):
 # 检测是否在翻滚中（供其他脚本使用）
 func is_rolling() -> bool:
     return current_state == PlayerState.ROLLING
-```
