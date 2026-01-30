@@ -4,6 +4,7 @@ extends Area2D
 
 @export var bullet_sprite: Sprite2D
 
+@export var bullet_base_speed: float = 200
 # 1: right, -1: left
 var bullet_direction: int = 1
 
@@ -14,10 +15,10 @@ func _physics_process(delta: float) -> void:
 
 func bullet_move(delta: float):
 	if bullet_direction == 1:
-		position += Vector2(game_controller.bullet_base_speed, 0) * delta
+		position += Vector2(bullet_base_speed, 0) * delta
 		bullet_sprite.flip_h = false
 	else:
-		position += Vector2(-game_controller.bullet_base_speed, 0) * delta
+		position += Vector2(-bullet_base_speed, 0) * delta
 		bullet_sprite.flip_h = true
 
 func bullet_check_remove() -> void:
@@ -26,5 +27,5 @@ func bullet_check_remove() -> void:
 
 
 func bullet_remove() -> void:
-	game_controller.bullet_count -= 1
+	game_controller.sence_bullet_count -= 1
 	queue_free()

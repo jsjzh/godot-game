@@ -8,12 +8,7 @@ signal score_added(score: int)
 @export var audio_game_over: AudioStreamPlayer
 @export var game_over_restart_timer: Timer
 
-@export var player_base_speed: float = 80
-@export var slime_base_speed: float = 50
-@export var bullet_base_speed: float = 200
-@export var bullet_max_count: int = 3
-
-var bullet_count: int = 0
+var sence_bullet_count: int = 0
 
 var score: int = 0
 
@@ -29,7 +24,6 @@ func _process(_delta):
 func trigger_add_score(points: int):
   score += points
   score_added.emit(score)
-
 
 func handle_game_over():
   audio_game_over.play()
