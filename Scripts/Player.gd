@@ -152,6 +152,9 @@ func handle_animation_finished():
 func handle_game_over():
 	player_animated_sprite.play("game_over")
 
+func handle_attack():
+	print("Player attacked!")
+	GameManager.trigger_game_state(GameManager.GameState.GAME_OVER)
 
 func _on_roll_cooldown_timer_timeout() -> void:
 	player_can_roll = true

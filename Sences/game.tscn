@@ -5,8 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dflxmrs1je1cc" path="res://Sences/player.tscn" id="2_8not6"]
 [ext_resource type="PackedScene" uid="uid://kjjdmxix4wuu" path="res://Sences/slime.tscn" id="3_xfvu4"]
 [ext_resource type="Script" uid="uid://78ffnehtah7l" path="res://Scripts/GameController.gd" id="5_fijot"]
-[ext_resource type="Script" uid="uid://c8yu87t6icer5" path="res://Scripts/HeartContainer.gd" id="7_kcycv"]
-[ext_resource type="Texture2D" uid="uid://c8q3u5xryo14m" path="res://AssetBundle/Sprites/heart.png" id="7_mbebh"]
 [ext_resource type="FontFile" uid="uid://dnsb33tqh3cx0" path="res://AssetBundle/Uranus_Pixel_11Px.ttf" id="7_oyc07"]
 [ext_resource type="AudioStream" uid="uid://c6axlr2sgt13c" path="res://AssetBundle/Audio/GameOver.mp3" id="8_mbebh"]
 
@@ -78,24 +76,6 @@ theme_override_fonts/font = ExtResource("7_oyc07")
 theme_override_font_sizes/font_size = 120
 text = "GAME OVER"
 vertical_alignment = 1
-
-[node name="HeartContainer" type="Node" parent="UI" unique_id=573073969]
-script = ExtResource("7_kcycv")
-
-[node name="Sprite2D" type="Sprite2D" parent="UI/HeartContainer" unique_id=1067442593]
-position = Vector2(59.999996, 164)
-scale = Vector2(2.4999995, 2.5)
-texture = ExtResource("7_mbebh")
-
-[node name="Sprite2D2" type="Sprite2D" parent="UI/HeartContainer" unique_id=1509630217]
-position = Vector2(108, 164)
-scale = Vector2(2.4999995, 2.5)
-texture = ExtResource("7_mbebh")
-
-[node name="Sprite2D3" type="Sprite2D" parent="UI/HeartContainer" unique_id=1616348775]
-position = Vector2(156, 164)
-scale = Vector2(2.4999995, 2.5)
-texture = ExtResource("7_mbebh")
 
 [node name="GAMEOVER" type="AudioStreamPlayer" parent="." unique_id=485006242]
 stream = ExtResource("8_mbebh")
