@@ -13,13 +13,16 @@ func _ready():
 		await tween.finished
 		game_controller.trigger_coin(1)
 		game_controller.trigger_not_picked_coin(-1)
+		coin_audio_picked.play()
+		hide()
+		await coin_audio_picked.finished
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		coin_audio_picked.play()
 		game_controller.trigger_coin(1)
 		game_controller.trigger_not_picked_coin(-1)
+		coin_audio_picked.play()
 		hide()
 		await coin_audio_picked.finished
 		queue_free()
