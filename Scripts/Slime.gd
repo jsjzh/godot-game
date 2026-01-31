@@ -30,6 +30,7 @@ func _on_area_entered(area: Area2D) -> void:
 		await slime_animated_sprite.animation_finished
 		queue_free()
 
+		# if randi() % 100 < 50: # 50% 概率掉落金币
 		var coin_node = coin_scene.instantiate()
 		coin_node.position = position
 		get_tree().current_scene.add_child(coin_node)

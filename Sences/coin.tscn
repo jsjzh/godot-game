@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://1tjfnei351ep" path="res://AssetBundle/Sprites/YellowCoin.png" id="1_7t5uo"]
 [ext_resource type="Script" uid="uid://cd2dkojk5rxlr" path="res://Scripts/Coin.gd" id="1_c88qh"]
+[ext_resource type="AudioStream" uid="uid://dkmyvi0bmna3j" path="res://AssetBundle/Audio/pickupCoin.wav" id="3_wcpl6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c88qh"]
 atlas = ExtResource("1_7t5uo")
@@ -62,10 +63,11 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_degsb"]
 
-[node name="Coin" type="Area2D" unique_id=308612687]
+[node name="Coin" type="Area2D" unique_id=308612687 node_paths=PackedStringArray("coin_audio_picked")]
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_c88qh")
+coin_audio_picked = NodePath("AudioStreamPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1858286180]
 sprite_frames = SubResource("SpriteFrames_degsb")
@@ -75,5 +77,8 @@ frame_progress = 0.7967121
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1717473382 groups=["coin"]]
 shape = SubResource("CircleShape2D_degsb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=13304347]
+stream = ExtResource("3_wcpl6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var player_roll_speed: float = player_base_speed * 1.5
 @export var player_bullet_max_count: int = 3
 @export var player_roll_duration: float = 0.3
+@export var player_heart: int = 3
 
 enum PlayerMoveType {IDLE, RUN, ROLL}
 
