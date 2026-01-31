@@ -31,13 +31,12 @@ func _ready():
 	player_animated_sprite.animation_finished.connect(handle_animation_finished)
 
 
-# TODO 音乐待办
-# func _process(_delta):
-# 	if GameManager.is_game_playing() and player_move_type == PlayerMoveType.RUN:
-# 		if not player_audio_run.playing:
-# 			player_audio_run.play()
-# 	else:
-# 		player_audio_run.stop()
+func _process(_delta):
+	if GameManager.is_game_playing() and player_move_type != PlayerMoveType.ROLL and Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up") or Input.is_action_pressed("down"):
+		if not player_audio_run.playing:
+			player_audio_run.play()
+	else:
+		player_audio_run.stop()
 
 
 func _physics_process(delta: float) -> void:
@@ -45,8 +44,8 @@ func _physics_process(delta: float) -> void:
 		match player_move_type:
 			PlayerMoveType.IDLE:
 				handle_idle_state(delta)
-			PlayerMoveType.RUN:
-				handle_run_state(delta)
+			# PlayerMoveType.RUN:
+			# 	handle_run_state(delta)
 			PlayerMoveType.ROLL:
 				handle_roll_state(delta)
 
@@ -62,15 +61,29 @@ func handle_idle_state(delta):
 	if Input.is_action_just_pressed("roll") and input_direction != Vector2.ZERO:
 		start_roll(input_direction)
 	else:
+		# if input_direction != Vector2.ZERO:
+		# 	player_move_type = PlayerMoveType.RUN
 		velocity = input_direction * player_base_speed * delta
 		move_and_slide()
 		update_animation(input_direction)
 		handle_fire()
 
 
-func handle_run_state(_delta):
-	pass
+# func handle_run_state(delta):
+# 	var input_direction = Input.get_vector("left", "right", "up", "down")
 
+# 	if input_direction != Vector2.ZERO:
+# 		input_direction = input_direction.normalized()
+	
+# 	player_last_direction = sign(input_direction.x) if input_direction.x != 0 else player_last_direction
+
+# 	if Input.is_action_just_pressed("roll") and input_direction != Vector2.ZERO:
+# 		start_roll(input_direction)
+# 	else:
+# 		velocity = input_direction * player_base_speed * delta
+# 		move_and_slide()
+# 		update_animation(input_direction)
+# 		handle_fire()
 
 func handle_roll_state(delta):
 	player_roll_timer -= delta
